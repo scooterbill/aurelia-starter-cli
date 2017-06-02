@@ -1,9 +1,10 @@
-define('app',['exports'], function (exports) {
+define('app',['exports', 'aurelia-event-aggregator', 'aurelia-framework'], function (exports, _aureliaEventAggregator, _aureliaFramework) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
+  exports.App = undefined;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -11,11 +12,15 @@ define('app',['exports'], function (exports) {
     }
   }
 
-  var App = exports.App = function App() {
+  var _dec, _class;
+
+  var App = exports.App = (_dec = (0, _aureliaFramework.inject)(_aureliaEventAggregator.EventAggregator), _dec(_class = function App(eventAggregator) {
     _classCallCheck(this, App);
 
+    this.eventAggregator = eventAggregator;
+    console.log(this.eventAggregator);
     this.message = 'Hello World!';
-  };
+  }) || _class);
 });
 define('environment',["exports"], function (exports) {
   "use strict";
